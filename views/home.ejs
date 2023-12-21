@@ -1,0 +1,1088 @@
+<% include ./partials/header.ejs %>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: gilroy;
+
+        }
+
+        html,
+        body {
+            /* background-color: lightblue; */
+            width: 100%;
+            height: 100%;
+
+        }
+
+
+
+
+        .head {
+            width: 100%;
+        }
+
+        .main {
+            width: 100%;
+            position: relative;
+            height: 100vh;
+            background-color: #D0D4D5;
+            background-position: center;
+            background-size: cover;
+            display: flex;
+
+        }
+
+        #left {
+            width: 35%;
+            height: 100%;
+            padding: 50px 60px;
+        }
+
+        #left h5 {
+            font-size: 20px;
+            font-family: Poppins;
+            color: #535353;
+        }
+
+        #left h5 span {
+            color: #195bb1;
+        }
+
+        #left p {
+            font-size: 19px;
+            margin-bottom: 40px;
+
+        }
+
+        #left h1 {
+            font-size: 90px;
+            line-height: 80px;
+            margin-top: 2vw;
+            font-family: monument;
+            margin-bottom: 4vw;
+            text-transform: uppercase;
+        }
+
+        #left h1 span {
+            color: #114689;
+            font-family: monument;
+
+        }
+
+        .left-in {
+            margin-top: 6vw;
+        }
+
+        #left button {
+            color: white;
+            background-color: black;
+            font-size: 16px;
+
+            text-transform: uppercase;
+            padding: 15px 45px;
+            border-radius: 50px;
+            border-top-left-radius: 0px;
+        }
+
+        .right {
+            width: 65%;
+            height: 100%;
+            /* background-color: red; */
+            white-space: nowrap;
+
+
+        }
+
+        .elem7 {
+            width: 27vw;
+            height: 72vh;
+            background-color: white;
+            font-family: Poppins;
+            margin-top: 8vw;
+            margin-left: 3.5vw;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgb(0, 0, 0, 0.3);
+            display: inline-block;
+
+
+        }
+
+        .photo {
+            width: 100%;
+            height: 60%;
+
+        }
+
+        .photo img {
+            margin-top: 2.5vw;
+            margin-left: 12px;
+            object-fit: cover;
+            object-position: center;
+            /* width: 305px; */
+            width: 94%;
+            /* height: 200px; */
+
+        }
+
+        .elem-data {
+            width: 100%;
+            height: 20%;
+            /* background-color: lightseagreen; */
+            margin-top: 9.2vw;
+        }
+
+        .elem-data h5 {
+
+            background-color: #D0D4D5;
+            border-radius: 6px;
+            font-size: 20px;
+            width: 20vw;
+            padding-top: 10px;
+            margin-left: 7vw;
+            /* margin-top: 1.5vw; */
+            text-align: center;
+
+            height: 7vh;
+        }
+
+        .elem-data a {
+            /* width: 16vw;
+            height: 8vh; */
+            /* text-align: center; */
+            /* align-items: flex-end; */
+            font-size: 18px;
+            margin-left: 12.3vw;
+            /* padding-top: 10px; */
+            padding: 11px 15px;
+            text-decoration: none;
+            font-weight: 500;
+            color: #D0D4D5;
+            margin-top: 2vw;
+
+            background-color: black;
+            /* padding: 17px 30px; */
+            border-radius: 6px;
+        }
+
+        .center {
+            width: 100%;
+            /* margin-left: 2.4vw; */
+            height: 100vh;
+            /* margin-bottom: 2vw; */
+            /* margin-top: 10px; */
+            display: flex;
+            justify-content: space-between;
+            /* flex-wrap: wrap; */
+            /* background-color:rgb(236, 231, 231); */
+        }
+
+        .box {
+            margin-left: 8px;
+            margin-top: 4vw;
+            width: 25vw;
+            height: 74vh;
+            background-color: #B6B6B4;
+            overflow: hidden;
+
+        }
+
+        .pic {
+            height: 78%;
+            /* background-color: green; */
+            object-fit: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .pic img {
+            height: 45vh;
+            object-fit: cover;
+        }
+
+        .text {
+            transition: all ease 0.4s;
+            /* background-color: lightpink; */
+            height: 19vh;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .text:hover {
+            margin-top: -2.3vw;
+
+
+        }
+
+        .text h4 {
+            color: rgb(63, 62, 62);
+            margin-bottom: 5px;
+            font-size: 18px;
+
+        }
+
+        .text a {
+            font-weight: 500;
+            font-size: 22px;
+
+        }
+
+        .text h5 {
+            font-size: 18px;
+            font-weight: 500;
+            color: rgb(58, 56, 56);
+            margin-top: 6px;
+        }
+
+        .text h6 {
+            font-size: 18px;
+            margin-top: 1.9vw;
+            font-weight: 500;
+            color: #FF9F00;
+        }
+
+        .text h6 span {
+            color: black;
+        }
+
+        .text p {
+            font-size: 13px;
+            margin-top: 5px;
+            font-weight: bold;
+            color: #2FA849;
+        }
+
+        .thumb {
+            width: 5vw;
+            display: flex;
+            align-items: center;
+            height: 5vh;
+        }
+
+
+
+        .thumb button {
+            width: 60px;
+            height: 29px;
+            margin-left: 2vw;
+            font-size: 16px;
+            border-radius: 50px;
+            border-top-left-radius: 0px;
+            border: none;
+            color: white;
+            background-color: #34A888;
+        }
+
+        .page1 {
+            width: 100%;
+            height: 83vh;
+            background-color: #D0D4D5;
+            position: relative;
+        }
+
+        .page1-box1 {
+            width: 28vw;
+            height: 48vh;
+            left: 4vw;
+            background-image: url(../images/uploads/Image-1_91c9ae4d-faa3-48d9-b157-365bfe2ba744_460x.jpg);
+            background-position: bottom;
+            background-size: cover;
+            position: absolute;
+            top: 9vw;
+            z-index: 999;
+
+        }
+
+        .page1-box2 {
+            width: 25vw;
+            height: 48vh;
+            left: 29%;
+            top: 5vw;
+            background-image: url(../images/uploads/Image-2_cec95d96-97af-4908-bf12-884b3d92b714_460x.jpg);
+            background-position: center;
+            background-size: cover;
+
+            position: absolute;
+            background-color: red;
+        }
+
+        .page1-box3 {
+            width: 37vw;
+            height: 48vh;
+            left: 61%;
+            top: 7vw;
+            position: absolute;
+            /* background-color: red; */
+        }
+
+        .page1-box3 h1 {
+            font-family: monument;
+
+            font-size: 2.5vw;
+        }
+
+        .page1-box1 a {
+            color: white;
+            display: none;
+            z-index: 999;
+            transition: all ease 0.4s;
+
+        }
+
+        .page1-box1:hover a {
+            display: block;
+        }
+
+        .page1-box3 h1 span {
+            color: #34A888;
+            font-family: monument;
+
+
+        }
+
+        .page1-box3 button {
+            margin-top: 3vw;
+            color: white;
+            background-color: #34A888;
+            font-size: 16px;
+
+            text-transform: uppercase;
+            padding: 15px 45px;
+            border-radius: 50px;
+            border-top-left-radius: 0px;
+            border: none;
+        }
+
+        .page2 {
+            width: 100%;
+            height: 100vh;
+            background-color: white;
+        }
+
+        .mate {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .by {
+            margin-left: 5px;
+            margin-top: 4vw;
+            width: 28vw;
+            height: 74vh;
+            background-color: #F7F7F7;
+            /* transition: all ease 0.3s; */
+
+        }
+
+        .poto {
+            padding-top: 4vw;
+        }
+
+        /* .by:hover #b1{
+            display: flex;
+        } */
+
+
+
+        .by button {
+            width: 3vw;
+            height: 4vh;
+
+            color: white;
+            border: none;
+            border-radius: 6px;
+            margin-left: 20vw;
+            margin-top: 10px;
+            background-color: #FF9F00;
+        }
+
+        .mate2 {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .by-name {
+            width: 28vw;
+            margin-left: 5px;
+
+            margin-top: 5px;
+            height: 5vh;
+            /* background-color: red; */
+
+        }
+
+        .by-name a {
+            font-size: 14px;
+        }
+
+        .by img {
+            height: 24vw;
+            object-fit: cover;
+        }
+
+        @media (max-width:600px) {
+            .main {
+                width: 100%;
+                position: relative;
+                height: 100vh;
+                background-color: #D0D4D5;
+                background-position: center;
+                background-size: cover;
+                display: flex;
+                justify-content: space-between;
+                flex-direction: column;
+
+
+            }
+
+            #left {
+                width: 100%;
+                height: 50%;
+
+            }
+
+            #left h1 {
+                font-size: 28px;
+                font-family: monument;
+                line-height: 10vw;
+                text-transform: uppercase;
+            }
+
+            #left h5 {
+                font-size: 16px;
+                font-family: Poppins;
+                color: #535353;
+            }
+
+            #left h5 span {
+                color: #195bb1;
+            }
+
+            #left p {
+                font-size: 13px;
+                margin-bottom: 1px;
+
+            }
+
+            #left button {
+                color: white;
+                background-color: black;
+                font-size: 14px;
+
+                text-transform: uppercase;
+                padding: 10px 30px;
+                border-radius: 50px;
+                border-top-left-radius: 0px;
+            }
+
+            .elem7 {
+                width: 44vw;
+                height: 30vh;
+                background-color: white;
+                font-family: Poppins;
+                /* margin-top: 8vw; */
+                /* margin-left: 3.5vw; */
+                overflow: hidden;
+                border-radius: 10px;
+                box-shadow: 0 5px 10px rgb(0, 0, 0, 0.3);
+                display: inline-block;
+
+
+            }
+
+            .right {
+                width: 100%;
+                height: 50%;
+                /* background-color: red; */
+                white-space: nowrap;
+
+
+
+            }
+
+            .elem-data {
+                width: 100%;
+                height: 20%;
+                /* background-color: lightseagreen; */
+                margin-top: 3.2vw;
+            }
+
+            .elem-data h5 {
+
+                background-color: #D0D4D5;
+                border-radius: 6px;
+                font-size: 15px;
+                width: 100%;
+
+                text-align: center;
+
+                height: 7vh;
+            }
+
+            .elem-data a {
+
+                font-size: 14px;
+
+                text-decoration: none;
+                font-weight: 500;
+                color: #D0D4D5;
+
+
+                background-color: black;
+                border-radius: 6px;
+            }
+
+            .center {
+                width: 100%;
+                height: 100%;
+
+                display: flex;
+                flex-direction: column;
+
+                /* justify-content: space-between; */
+
+            }
+
+            .box {
+                margin-top: 2vw;
+                width: 90%;
+                height: 60vh;
+                background-color: #B6B6B4;
+                overflow: hidden;
+
+            }
+
+            .pic {
+                height: 60%;
+                /* background-color: green; */
+                object-fit: cover;
+                /* display: flex;
+            align-items: center;
+            justify-content: center; */
+
+            }
+
+            .pic img {
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .text {
+                transition: all ease 0.4s;
+                /* background-color: lightpink; */
+                height: 20vh;
+                /* display: flex; */
+                justify-content: space-between;
+                padding: 0 20px;
+            }
+
+            .text h4 {
+                color: rgb(63, 62, 62);
+                margin-bottom: 5px;
+                font-size: 15px;
+
+            }
+
+            .text a {
+                font-weight: 500;
+                font-size: 16px;
+
+            }
+
+            .text h6 {
+                font-size: 18px;
+                margin-top: 1.9vw;
+                font-weight: 500;
+                color: black;
+            }
+
+            .page1-box3 {
+                width: 96vw;
+                height: 35vh;
+                left: 0%;
+                top: 2vw;
+                /* display: none; */
+                position: absolute;
+                /* background-color: red; */
+            }
+
+            .page1-box3 h1 {
+                font-family: monument;
+                margin-left: 20vw;
+                margin-top: 8vw;
+                font-size: 7vw;
+            }
+
+            .page1-box3 button {
+                margin-top: 3vw;
+                color: white;
+                background-color: #34A888;
+                font-size: 16px;
+                margin-left: 20vw;
+
+                text-transform: uppercase;
+                padding: 10px 32px;
+                border-radius: 50px;
+                border-top-left-radius: 0px;
+                border: none;
+            }
+
+            .page1-box1 {
+                width: 40vw;
+                height: 25vh;
+                left: 7vw;
+                background-image: url(../images/uploads/Image-1_91c9ae4d-faa3-48d9-b157-365bfe2ba744_460x.jpg);
+                background-position: bottom;
+                background-size: cover;
+                position: absolute;
+                top: 60%;
+                z-index: 999;
+
+            }
+
+            .page1-box2 {
+                width: 40vw;
+                height: 30vh;
+                left: 54%;
+                top: 60%;
+                background-image: url(../images/uploads/Image-2_cec95d96-97af-4908-bf12-884b3d92b714_460x.jpg);
+                background-position: center;
+                background-size: cover;
+
+                position: absolute;
+                background-color: red;
+            }
+            .mate {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+        }
+
+        .by {
+            /* margin-left: 5px; */
+            /* margin-top: 4vw; */
+            width: 90vw;
+            height: 40vh;
+            background-color: #F7F7F7;
+            /* transition: all ease 0.3s; */
+
+        }
+        .by button {
+            width: 15vw;
+            height: 4vh;
+
+            color: white;
+            border: none;
+            border-radius: 6px;
+            margin-left: 20vw;
+            margin-top: 10px;
+            background-color: #FF9F00;
+        }
+        .by img{
+            height: 70vw;
+        }
+        .poto {
+            padding-left: 8vw;
+        }
+        
+        .by-name {
+            width: 20vw;
+            /* margin-left: 5px; */
+
+            margin-top: 5px;
+            /* height: 5vh; */
+            /* background-color: red; */
+
+        }
+        .by-name a {
+            font-size: 12px;
+
+        }
+
+        }
+    </style>
+    </head>
+
+    <body>
+
+        <div class="head">
+
+
+
+            <div class="main">
+                <div id="left">
+                    <div class="left-in">
+
+
+                        <h5>Explore the <span>Limited</span> edition</h5>
+                        <h1>
+                            New <span>Limited</span> <br />
+                            edition
+                        </h1>
+
+                        <button>Shop Now</button>
+                    </div>
+                </div>
+
+                <div class="right">
+                    <div class="cnt">
+                        <div class="elem7">
+
+                            <div class="photo">
+
+                                <img src="https://www.sneakerfiles.com/wp-content/uploads/2018/07/nike-lebron-soldier-12-anchor-ao2609-401.jpg"
+                                    alt="" />
+                            </div>
+
+                            <div class="elem-data">
+
+                                <a href="http://localhost:3000/post/65792c521d9387372fee6b0d">LeBron Soldier
+                                    12(Team)</a>
+
+                                <h5>Men's Basketball Shoes</h5>
+                            </div>
+
+
+
+                        </div>
+                        <div class="elem7">
+                            <div class="photo">
+
+                                <img src="https://sneakernews.com/wp-content/uploads/2018/04/nike-lebron-soldier-12-a04055-100-1.jpg"
+                                    alt="" />
+                            </div>
+                            <div class="elem-data">
+                                <a href="http://localhost:3000/post/65792bee1d9387372fee6aef">LeBron Soldier
+                                    12(Team)</a>
+                                <h5>Men's Basketball Shoes</h5>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="center">
+
+                <div class="box">
+
+                    <div class="pic">
+
+                        <img src="../images/uploads/dfa81860-eaa1-4104-985c-0058b1e86761.jpg" alt="">
+                    </div>
+
+
+                    <div class="text">
+
+
+                        <div class="text-up">
+
+                            <h4>Nike</h4>
+
+
+
+
+                            <a href="http://localhost:3000/post/65792cb91d9387372fee6b26">Air Jorden 1 Zoom</a>
+
+                            <h5>
+                                MRP: 13,295
+                            </h5>
+                            <p>Hot Deal</p>
+
+                            <h6>Size <span>6,7,8,9,10</span></h6>
+                        </div>
+                        <div class="thumb">
+                            <button>Like</button>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="box">
+
+                    <div class="pic">
+
+                        <img src="../images/uploads/cdea9b12-e7f2-452c-9649-1aa6ba2370b1.jpg" alt="">
+                    </div>
+
+
+                    <div class="text">
+
+
+                        <div class="text-up">
+
+                            <h4>Nike</h4>
+
+                            <a href="http://localhost:3000/post/65798cdfa6fc656f2f7ca605">Nike Air Jorden</a>
+
+                            <h5>
+                                MRP: 11,425
+                            </h5>
+                            <p>Hot Deal</p>
+
+                            <h6>Size <span>6,7,8,9,10</span></h6>
+                        </div>
+                        <div class="thumb">
+                            <!-- <i class="ri-thumb-up-fill"></i> -->
+                            <button>Like</button>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="box">
+
+                    <div class="pic">
+
+                        <img src="../images/uploads/ba08723a-a8e4-496e-b0f5-66436807076e.jpg" alt="">
+                    </div>
+
+
+                    <div class="text">
+
+
+                        <div class="text-up">
+
+                            <h4>Nike</h4>
+
+
+                            <a href="http://localhost:3000/post/65798ad2a6fc656f2f7ca577">Nike Jumpman MVP Men</a>
+
+
+                            <h5>
+                                MRP:15,295
+                            </h5>
+                            <p>Hot Deal</p>
+
+                            <h6>Size <span>6,7,8,9,10</span></h6>
+                        </div>
+                        <div class="thumb">
+                            <!-- <i class="ri-thumb-up-fill"></i> -->
+                            <button>Like</button>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="box">
+
+                    <div class="pic">
+
+                        <img src="../images/uploads/ce38e3d4-7382-4d01-8984-3c5667f7e465.jpg" alt="">
+                    </div>
+
+
+                    <div class="text">
+
+
+                        <div class="text-up">
+
+                            <h4>
+                                Nike
+                            </h4>
+                            <a href="http://localhost:3000/post/65798b10a6fc656f2f7ca590">Nike Saint German J1</a>
+
+                            <h5>
+                                MRP: 15,295
+                            </h5>
+                            <p>Hot Deal</p>
+
+                            <h6>Size <span>6,7,8,9,10</span></h6>
+                        </div>
+                        <div class="thumb">
+                            <!-- <i class="ri-thumb-up-fill"></i> -->
+                            <button>Like</button>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div class="page1">
+                <div class="page1-box1">
+
+                    <a href="/men">Check it</a>
+
+                </div>
+
+                <div class="page1-box2">
+
+                </div>
+
+                <div class="page1-box3">
+
+                    <h1>NEW 2024 <br> THE BEST <span>CLASSICAL</span></h1>
+                    <button>Buy Now</button>
+                </div>
+
+            </div>
+
+
+            <div class="page2">
+
+                <h2>New Arrivals</h2>
+
+                <div class="mate">
+
+                    <div class="by">
+                        <Button id="b1">ADD</Button>
+                        <div class="poto">
+
+                            <img src="../images/uploads/DD9535-102-PHSRH000-2000.png" alt="">
+                        </div>
+                    </div>
+                    <div class="by">
+                        <Button>ADD</Button>
+                        <div class="poto">
+
+                            <img src="../images/uploads/DD9535-101-PHSRH000-2000_x400_crop_center.png" alt="">
+                        </div>
+
+                    </div>
+                    <div class="by">
+                        <Button>ADD</Button>
+                        <div class="poto">
+
+                            <img src="../images/uploads/CW6736-002-PHSRH000-2000_x400_crop_center.png" alt="">
+                        </div>
+
+                    </div>
+                    <div class="by">
+                        <Button>ADD</Button>
+                        <div class="poto">
+
+                            <img src="../images/uploads/DV8996-002-PHSRH000-2000_x400_crop_center.png" alt="">
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="mate2">
+
+                    <div class="by-name">
+                        <a href="http://localhost:3000/post/65798d0ba6fc656f2f7ca61e">Nike Precision Vi(M) <br>
+                            MRP.4,200</a>
+                    </div>
+                    <div class="by-name">
+                        <a href="http://localhost:3000/post/65798d30a6fc656f2f7ca627">Nike Air Vi(M) <br> MPR:5,968</a>
+
+                    </div>
+                    <div class="by-name">
+                        <a href="http://localhost:3000/post/65798d54a6fc656f2f7ca630">Nike Air Force Vi(M) <br>
+                            MRP:14,995</a>
+
+                    </div>
+                    <div class="by-name">
+                        <a href="http://localhost:3000/post/65798d98a6fc656f2f7ca639">Nike Court vision Vi(M) <br>
+                            MRP:21,564</a>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+        <!-- <script>
+            var orderId;
+            $(document).ready(function () {
+                var settings = {
+                    "url": "/create/orderId",
+                    "method": "POST",
+                    "timeout": 0,
+                    "headers": {
+                        "Content-Type": "application/json"
+                    },
+                    "data": JSON.stringify({
+                        "amount": "5000"
+                    }),
+                };
+
+                //creates new orderId everytime
+                $.ajax(settings).done(function (response) {
+
+
+                    var options = {
+                        "key": "rzp_test_VKBWnUuvnx9dr2", // Enter the Key ID generated from the Dashboard
+                        "amount": response.amount*500, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                        "currency": "INR",
+                        "name": "AQUA",
+                        "description": "Test Transaction",
+                        "image": "https://gumlet.assettype.com/digitalterminal%2Fimport%2Fuploads%2Fnews%2F1619518316s_Mankind-Pharma.jpg",
+                        "order_id": response.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+                        "handler": function (response) {
+                            // alert(response.razorpay_payment_id);
+                            // alert(response.razorpay_order_id);
+                            // alert(response.razorpay_signature)
+                            var settings = {
+                                "url": "/api/payment/verify",
+                                "method": "POST",
+                                "timeout": 0,
+                                "headers": {
+                                    "Content-Type": "application/json"
+                                },
+                                "data": JSON.stringify({ response }),
+                            }
+                            $.ajax(settings).done(function (verification) {
+                            console.log(verification);
+                            if (verification == true) {
+                                window.location.href = '/success';
+                            }
+                            else {
+                                alert("payment failed");
+                            }
+                        })
+                        },
+                        "prefill": {
+                            "name": "Gaurav Kumar",
+                            "email": "gaurav.kumar@example.com",
+                            "contact": "9000090000"
+                        },
+                        "notes": {
+                            "address": "Razorpay Corporate Office"
+                        },
+                        "theme": {
+                            "color": "#3399cc"
+                        }
+                    };
+                    var rzp1 = new Razorpay(options);
+                    rzp1.on('payment.failed', function (response) {
+                        alert(response.error.code);
+                        alert(response.error.description);
+                        alert(response.error.source);
+                        alert(response.error.step);
+                        alert(response.error.reason);
+                        alert(response.error.metadata.order_id);
+                        alert(response.error.metadata.payment_id);
+                    });
+                    document.getElementById('rzp-button1').onclick = function (e) {
+                        rzp1.open();
+                        e.preventDefault();
+                    }
+
+                    $("button").show();
+                });
+            });
+        </script> -->
+
+
+
+        <% include ./partials/footer.ejs %>

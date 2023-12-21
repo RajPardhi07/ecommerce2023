@@ -1,0 +1,387 @@
+<% include ./partials/header.ejs %>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: gilroy;
+      box-sizing: border-box;
+
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    #main {
+      width: 100%;
+      height: 100vh;
+      background-color: #F1F3F6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+
+    }
+
+    #center {
+      width: 90%;
+      height: 90%;
+      margin-top: 4.3vw;
+      /* background-color: lightpink; */
+      display: flex;
+      background-color: white;
+    }
+
+    .left {
+      width: 50%;
+      height: 100%;
+      /* background-color: red; */
+
+    }
+
+    .left img {
+      width: 40vw;
+      height: 54vh;
+      object-fit: cover;
+    }
+
+    .photo {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 60vh;
+      object-fit: cover;
+      border: 1px solid lightgrey;
+    }
+
+    .btn {
+      width: 100%;
+      height: 13vh;
+      display: flex;
+      padding: 0 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .right {
+      width: 50%;
+      height: 100%;
+      background-color: white;
+      margin-left: 2vw;
+
+    }
+
+    .text-right h5 {
+      font-size: 19px;
+      font-weight: bold;
+      color: #26A541;
+
+    }
+
+    .text-right h4 {
+      font-size: 30px;
+      color: #878787;
+      font-weight: 500;
+      font-family: monument;
+      margin-top: 1vw;
+      /* margin-bottom: 1vw; */
+      letter-spacing: 2px;
+
+    }
+
+    .text-right p {
+      font-size: 33px;
+      margin-bottom: 3px;
+      letter-spacing: -1px;
+      color: rgb(43, 42, 42);
+
+    }
+
+    .text-right h3 {
+      font-size: 3vw;
+      margin-top: 10px;
+      font-weight: 500;
+    }
+
+    .rating {
+      display: flex;
+      margin-top: 2vw;
+      align-items: center;
+    }
+
+    .rating h5 {
+      font-weight: 500;
+      font-size: 18px;
+      margin-left: 1vw;
+      color: #8B8787;
+    }
+
+    .box-right {
+      width: 60px;
+      margin-top: 3px;
+      height: 30px;
+      background-color: #26A541;
+      color: white;
+      display: flex;
+      border-radius: 50px;
+      padding: 0 8px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .box-right h4 {
+      font-size: 19px;
+      color: white;
+      font-family: gilroy;
+    }
+
+    .offer {
+      margin-top: 4vw;
+    }
+
+    .offer-text {
+      display: flex;
+      margin-top: 7px;
+
+    }
+
+    .offer-text i {
+      color: #26A541;
+      font-size: 20px;
+    }
+
+    .offer-text h5 {
+      font-size: 15px;
+      font-weight: 500;
+      margin-left: 15px;
+      margin-top: 6px;
+    }
+
+    .size h5 {
+      font-size: 15px;
+      font-weight: 500;
+      color: #878787;
+
+    }
+    .size{
+      display: flex;
+      align-items: center;
+      margin-top: 5vw;
+    }
+    .size-box{
+      width: 50px;
+      font-size: 19px;
+      height: 50px;
+      /* background-color: #FF9F00; */
+      margin-left: 20px;
+      display: flex;
+      border: 2px solid gray;
+      align-items: center;
+      justify-content: center;
+    }
+
+
+
+    .btn button {
+      width: 21vw;
+      border: none;
+      border-radius: 6px;
+      height: 8vh;
+      font-size: 19px;
+      color: white;
+      font-weight: 600;
+
+    }
+
+    #cart {
+      background-color: #FF9F00;
+    }
+
+    #rzp-button1 {
+      background-color: #FB641B;
+    }
+  </style>
+
+  <body>
+
+    <div id="main">
+
+      <div id="center">
+
+        <div class="left">
+          <div class="photo">
+
+            <img src="../images/uploads/<%= post.postimage %>" alt="Post Image">
+          </div>
+
+          <div class="btn">
+            <button id="cart">Add to cart</button>
+            <button id="rzp-button1">Buy Now</button>
+          </div>
+
+        </div>
+
+        <div class="right">
+
+          <div class="text-right">
+            <h4>
+              <%= post.brand %>
+            </h4>
+            <p>
+              <%= post.data %>
+
+            </p>
+            <h5>Special Price</h5>
+            <h3>
+              ₹ <%= post.price %>
+            </h3>
+          </div>
+          <!-- <button id="rzp-button1">Buy Now</button> -->
+          <div class="rating">
+
+            <div class="box-right">
+              <h4>4.3 </h4>
+              <i class="ri-star-fill"></i>
+            </div>
+
+            <h5>5034 rating and 897 review</h5>
+          </div>
+          <div class="offer">
+
+            <h4>Available Offer</h3>
+              <div class="offer-text">
+                <i class="ri-price-tag-3-fill"></i>
+                <h5>Bank Offer 10% Discount on Bank Debit Cards, up to ₹250, on orders of ₹5000 and above</h5>
+              </div>
+
+              <div class="offer-text">
+                <i class="ri-price-tag-3-fill"></i>
+                <h5>Bank Offer 10% Discount on Bank credit EMI, up to ₹250, on orders of ₹5000 and above</h5>
+              </div>
+
+              <div class="offer-text">
+                <i class="ri-price-tag-3-fill"></i>
+                <h5>Special PriceGet extra 57% off (price inclusive of cashback/coupon)T&C
+
+                </h5>
+              </div>
+          </div>
+
+          <div class="size">
+            <h5>Size -India</h5>
+            <div class="size-box">7</div>
+            <div class="size-box">7.5</div>
+            <div class="size-box">8</div>
+            <div class="size-box">9</div>
+            <div class="size-box">10</div>
+
+          </div>
+
+
+        </div>
+
+        <!-- Add more details as needed -->
+
+      </div>
+    </div>
+    <!-- Add other HTML elements and styling as needed -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function (event) {
+        var scrollpos = localStorage.getItem('scrollpos');
+        if (scrollpos) window.scrollTo(0, scrollpos);
+      });
+
+      window.onbeforeunload = function (e) {
+        localStorage.setItem('scrollpos', window.scrollY);
+      };
+
+      var orderId;
+      $(document).ready(function () {
+        var settings = {
+          "url": "/create/orderId",
+          "method": "POST",
+          "timeout": 0,
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "data": JSON.stringify({
+            "amount": "<%=post.price%>"
+          }),
+        };
+
+        //creates new orderId everytime
+        $.ajax(settings).done(function (response) {
+
+
+          var options = {
+            "key": "rzp_test_VKBWnUuvnx9dr2", // Enter the Key ID generated from the Dashboard
+            "amount": response.amount * 500, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            "currency": "INR",
+            "name": "AQUA",
+            "description": "Test Transaction",
+            "image": "https://gumlet.assettype.com/digitalterminal%2Fimport%2Fuploads%2Fnews%2F1619518316s_Mankind-Pharma.jpg",
+            "order_id": response.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+            "handler": function (response) {
+              // alert(response.razorpay_payment_id);
+              // alert(response.razorpay_order_id);
+              // alert(response.razorpay_signature)
+              var settings = {
+                "url": "/api/payment/verify",
+                "method": "POST",
+                "timeout": 0,
+                "headers": {
+                  "Content-Type": "application/json"
+                },
+                "data": JSON.stringify({ response }),
+              }
+              $.ajax(settings).done(function (verification) {
+                console.log(verification);
+                if (verification == true) {
+                  window.location.href = '/success';
+                }
+                else {
+                  alert("payment failed");
+                }
+              })
+            },
+            "prefill": {
+              "name": "Gaurav Kumar",
+              "email": "gaurav.kumar@example.com",
+              "contact": "9000090000"
+            },
+            "notes": {
+              "address": "Razorpay Corporate Office"
+            },
+            "theme": {
+              "color": "#3399cc"
+            }
+          };
+          var rzp1 = new Razorpay(options);
+          rzp1.on('payment.failed', function (response) {
+            alert(response.error.code);
+            alert(response.error.description);
+            alert(response.error.source);
+            alert(response.error.step);
+            alert(response.error.reason);
+            alert(response.error.metadata.order_id);
+            alert(response.error.metadata.payment_id);
+          });
+          document.querySelectorAll('#rzp-button1').forEach((e) => {
+            e.onclick = function (e) {
+              rzp1.open();
+              e.preventDefault();
+            }
+          })
+
+          $("button").show();
+        });
+      });
+
+    </script>

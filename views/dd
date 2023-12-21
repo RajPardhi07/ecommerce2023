@@ -1,0 +1,178 @@
+<!-- <h4>
+                                <%= post.data %>
+                            </h4>
+
+
+postModel.find({tag:men})
+
+
+
+
+
+
+                            router.post('/detail/:postid', isLoggedIn, function(req, res){
+                                userModel.findOne({username:req.session.passport.user})
+                                .then(function(userData){
+                                  postModel.findOne({_id: req.params.postid})
+                                  .then(function(post){
+                                    post.detail.push({
+                                      username: allposts.username,
+                                      postimage: req.file.filename,
+                                      userid:allposts._id
+                                    })
+                                    post.save()
+                                    .then(function(){
+                                     res.render('detail',{userData})
+                                    })
+                                  })
+                                })
+                              })
+                              
+                              
+                              router.get('/detail/:postid', isLoggedIn, function(req, res){
+                                userModel.findOne({username:req.session.passport.user})
+                              .then(function(userData){
+                              postModel.find()
+                              .populate("detail")
+                              res.render("detail",{userData})
+                              })
+                              })
+
+                              
+
+
+
+
+
+
+                              detail.ejs
+                              <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+
+width: 21vw;
+height: 35vh;
+object-fit: cover;
+
+}
+    </style>
+</head>
+<body>
+    <h1>This is singleuser page</h1>
+    <% post.detail.forEach(function(post){ %>
+        <img src="../images/uploads/<%= post.postimage %>" alt="">
+
+
+        <h3>
+
+            <a href="/detail/<%= post._id %>">/detail/<%= post._id %></a>
+        </h3>
+        
+        <h4>
+            Rs <%= post.price %>
+        </h4>
+
+        <h5>Size 6,7,8,9,10</h5>
+
+        <button id="rzp-button1">Buy Now</button>
+
+        <% })%>
+</body>
+</html> -->
+
+
+
+
+// router.post('/post', isLoggedIn, upload.single("postimage"), function (req, res) {
+
+  //   userModel.findOne({ username: req.session.passport.user })
+  //     .then(function (user) {
+  //       postModel.create({
+  //         postimage: req.file.filename,
+  //         data: req.body.post,
+  //         userid: user._id
+  //       })
+  //       .then(function(){
+  //         user.posts.push(post._id)
+  //         user.save()
+  //         .then(function(){
+  //           res.redirect("back")
+  //         })
+  //       })
+  //     })
+  // })
+
+
+
+
+
+  // router.get('/men', isLoggedIn, function(req, res){
+    // userModel.findOne({username: req.session.passport.user})
+    // .then(function(user){
+    //   postModel.find({tag:"male"})
+    //   .then(function(post){
+    //     user.posts.push(post._id)
+    //     user.save()
+    //     .then(function(){
+    //       res.redirect("back")
+    //     })
+    //   })
+    // })
+    // })
+    
+
+
+
+    home.ejs
+    <div class="center">
+
+      <% allposts.reverse().forEach(function(post){ %>
+          <div class="box">
+
+              <div class="pic">
+
+                  <img src="../images/uploads/<%= post.postimage %>" alt="">
+              </div>
+
+
+              <div class="text">
+
+
+                  <div class="text-up">
+
+                      <a href="/post/<%= post._id %>">
+                          <%= post.data %>
+                      </a>
+                      <!-- <h3>
+                          <%= post.tag %>
+                      </h3> -->
+                      <h4>
+                          <%= post.data %>
+                      </h4>
+                      <h5>
+                          Rs. <%= post.price %>
+                      </h5>
+                      <p>Hot Deal</p>
+
+                      <h6>Size <span>6,7,8,9,10</span></h6>
+                  </div>
+                  <div class="thumb">
+                      <i class="ri-thumb-up-fill"></i>
+                      <button>Like</button>
+
+                  </div>
+              </div>
+
+
+
+
+
+          </div>
+          <% }) %>
+
+  </div>

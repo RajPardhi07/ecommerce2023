@@ -1,0 +1,51 @@
+<!-- detail.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post Detail</title>
+<style>
+    img{
+        width: 400px;
+        height: 400px;
+        object-fit: cover;
+
+    }
+</style>
+</head>
+<body>
+
+  <h1>Post Detail</h1>
+
+  <% if (userData) { %>
+    <p>User: <%= userData.username %></p>
+  <% } %>
+
+  <% if (post) { %>
+    <div>
+      <h2><%= post.title %></h2>
+      <p><%= post.description %></p>
+
+      <!-- Display post details -->
+      <h3>Details:</h3>
+      <ul>
+        <% post.detail.forEach(function(detail) { %>
+          <li>
+            <p>Username: <%= detail.username %></p>
+            <p>price: <%= detail.price %></p>
+
+            <img src="../images/uploads/<%= detail.postimage %>" alt="Post Image">
+
+            <p>User ID: <%= detail.userid %></p>
+          </li>
+        <% }); %>
+      </ul>
+    </div>
+  <% } else { %>
+    <p>Post not found.</p>
+  <% } %>
+
+</body>
+</html>

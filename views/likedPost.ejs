@@ -1,0 +1,303 @@
+<% include ./partials/header.ejs %>
+
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: gilroy;
+
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+
+    }
+
+    .pic {
+
+/* width: 22vw; */
+height: 75%;
+
+/* height: 45vh; */
+/* background-color: green; */
+object-fit: cover;
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+.pic img {
+height: 40vh;
+object-fit: cover;
+}
+
+.center {
+width: 100%;
+/* background-color: red; */
+margin-bottom: 2vw;
+
+display: flex;
+justify-content: flex-start;
+flex-wrap: wrap;
+}
+
+.box {
+
+margin-left: 2vw;
+
+width: 22vw;
+position: relative;
+height: 72vh;
+background-color: lightgray;
+/* background-color:rgb(189, 240, 88) ; */
+overflow: hidden;
+
+margin-bottom: 1vw;
+border-radius: 5px;
+overflow: hidden;
+
+
+}
+
+.uper {
+width: 100%;
+height: 9.4vh;
+}
+
+.uper2 {
+width: 100%;
+height: 25vh;
+display: flex;
+align-items: center;
+justify-content: center;
+/* background-color:lightgreen; */
+}
+.uper2 h1{
+  font-size: 3vw;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+}
+
+.text {
+transition: all ease 0.4s;
+/* background-color: lightpink; */
+height: 19vh;
+display: flex;
+justify-content: space-between;
+padding: 0 10px;
+}
+
+.text-back {
+height: 5vh;
+position: absolute;
+z-index: 9999;
+width: 100%;
+top: 93%;
+transition: all ease 0.4s;
+
+opacity: 0;
+background-color: lightgray;
+/* background-color: #FF9F00; */
+}
+
+.text-back h4 {
+font-weight: 500;
+font-size: 20px;
+text-align: center;
+}
+
+.text-back h4 span {
+color: #33bd96;
+font-weight: bold;
+}
+
+.text-back:hover {
+opacity: 1;
+
+}
+
+.text a {
+font-size: 22px;
+color: rgb(63, 62, 62);
+margin-bottom: 5px;
+
+}
+
+.text a {
+font-weight: 500;
+
+font-size: 18px;
+color: black;
+/* margin-bottom: 5px; */
+}
+
+.text h5 {
+font-size: 18px;
+margin-top: 6px;
+font-weight: 500;
+/* color: rgb(114, 112, 112); */
+color: rgb(78, 76, 76);
+}
+
+.text h6 {
+font-size: 18px;
+margin-top: 1.9vw;
+font-weight: 500;
+color: #FF9F00;
+}
+
+.text h6 span {
+color: black;
+}
+
+.text p {
+font-size: 18px;
+margin-bottom: 6px;
+font-family: monument;
+
+font-weight: 500;
+letter-spacing: 1px;
+/* color: #2FA849; */
+/* color: #33bd96; */
+color: #114689;
+}
+
+.thumb {
+width: 5vw;
+display: flex;
+align-items: center;
+height: 5vh;
+}
+
+
+
+.thumb button {
+width: 60px;
+height: 29px;
+margin-left: 2vw;
+font-size: 16px;
+border-radius: 50px;
+border-top-left-radius: 0px;
+border: none;
+color: white;
+/* background-color: #34A888; */
+background-color: #114689;
+}
+
+@media (max-width:600px) {
+      .box {
+        margin-top: 2vw;
+
+
+        width: 97vw;
+        position: relative;
+        height: 50vh;
+        background-color: lightgray;
+        overflow: hidden;
+
+        border-radius: 5px;
+        overflow: hidden;
+
+
+      }
+
+      .pic {
+
+        /* width: 22vw; */
+        height: 60%;
+margin-top: 2vw;
+        /* height: 45vh; */
+        object-fit: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+      }
+     
+      .uper2 h1{
+  font-size: 10vw;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+}
+      .pic img {
+        height: 30vh;
+        object-fit: cover;
+      }
+    }
+</style>
+
+<body>
+
+<div class="uper">
+
+</div>
+<div class="uper2">
+<h1>My Wishlist</h1>
+</div>
+    <div class="center">
+
+    
+
+    <% if (postData && postData.likes && postData.likes.length > 0) { %>
+
+            <% postData.likes.forEach(post => { %>
+                <div class="box">
+
+                    <div class="pic">
+    
+                      <!-- Display post details as needed -->
+                      <img src="<%= '/images/uploads/' + post.postimage %>" alt="Post Image">
+                    </div>
+    
+                    <div class="text">
+    
+                      <div class="text-up">
+    
+                        <p>
+                          <%= post.brand %>
+                        </p>
+                        <a href="/post/<%= post._id %>">
+                          <%= post.data %>
+                      </a>
+                        <!-- <h4>
+                          <%= post.data %>
+                        </h4> -->
+                        <h5>MRP: <%= post.price %>
+                        </h5>
+    
+                      </div>
+    
+                      <div class="thumb">
+                        <!-- <button>Like</button> -->
+                        <a class="like" href="/likepost/<%= post._id %>">
+
+                    
+                            <%= post.likes.indexOf(post.id)===-1 ? "unlike" : "like" %>
+      
+                      </a> 
+    
+                      </div>
+                    </div>
+    
+                    <div class="text-back">
+    
+                      <h4><span>Size</span> - 6,7,8,9</h4>
+                    </div>
+    
+    
+                    <!-- Add more details as needed -->
+    
+                  </div>                
+            <% }); %>
+        
+    <% } else { %>
+        <p>No liked posts yet.</p>
+    <% } %>
+</div>
+    <!-- Add your additional HTML content, scripts, or other body elements here -->
+
+    <% include ./partials/footer.ejs %>

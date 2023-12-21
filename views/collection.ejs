@@ -1,0 +1,270 @@
+<% include ./partials/header.ejs %>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: gilroy;
+        }
+
+        .center {
+            width: 100%;
+            /* margin-left: 2.4vw; */
+
+            margin-bottom: 2vw;
+
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            /* background-color:rgb(236, 231, 231); */
+        }
+
+        .box {
+            margin-top: 15px;
+
+            margin-left: 0.5vw;
+
+            width: 24vw;
+            height: 72vh;
+            background-color: lightgray;
+            overflow: hidden;
+
+            margin-bottom: 1vw;
+            border-radius: 5px;
+            overflow: hidden;
+
+        }
+
+        .pic {
+
+            /* width: 22vw; */
+            height: 78%;
+
+            /* height: 45vh; */
+            /* background-color: red; */
+            object-fit: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .pic img {
+            /* width: 21vw; */
+            height: 43vh;
+            object-fit: cover;
+        }
+
+        .text {
+            transition: all ease 0.4s;
+            /* background-color: lightpink; */
+            height: 19vh;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .text:hover {
+            margin-top: -2.3vw;
+
+
+        }
+
+        .text a {
+            font-size: 22px;
+            color: gray;
+            margin-bottom: 5px;
+
+        }
+
+        .text h4 {
+            font-weight: 500;
+        }
+
+        .text h5 {
+            font-size: 18px;
+            margin-top: 6px;
+        }
+
+        .text h6 {
+            font-size: 18px;
+            margin-top: 1.9vw;
+            font-weight: 500;
+            color: #FF9F00;
+        }
+
+        .text h6 span {
+            color: black;
+        }
+
+        .text p {
+            font-size: 13px;
+            margin-top: 5px;
+            font-weight: bold;
+            color: #2FA849;
+        }
+
+        .thumb {
+            width: 5vw;
+            display: flex;
+            align-items: center;
+            height: 5vh;
+        }
+
+        .thumb i {
+            border-radius: 50px;
+            padding: 6px 6px;
+            color: #2A55E5;
+            z-index: 999;
+            background-color: #FFDE14;
+        }
+
+        .thumb button {
+            width: 45px;
+            height: 17px;
+            margin-left: -0.3vw;
+
+            border-top-right-radius: 7px;
+            border: none;
+            color: white;
+            background-color: #2874F0;
+        }
+
+        .uper {
+            width: 100%;
+            height: 9.5vh;
+            /* background-color: red; */
+        }
+
+        .uper2 {
+            width: 100%;
+            height: 30vh;
+            background-color: rgb(26, 255, 0);
+            background-image: url(../images/uploads/new-arrival_1080x.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+
+        @media (max-width:600px) {
+            .uper2 {
+            width: 100%;
+            height: 23vh;
+            background-image: url(../images/uploads/new-arrival_1080x.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+            .box {
+                margin-top: 2vw;
+
+
+                width: 97vw;
+                position: relative;
+                height: 50vh;
+                background-color: lightgray;
+                overflow: hidden;
+
+                border-radius: 5px;
+                overflow: hidden;
+
+
+            }
+
+            .pic {
+
+                /* width: 22vw; */
+                height: 60%;
+                margin-top: 2vw;
+                /* height: 45vh; */
+                object-fit: cover;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+            }
+
+            .uper2 h1 {
+                font-size: 10vw;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: 500;
+            }
+
+            .pic img {
+                height: 30vh;
+                object-fit: cover;
+            }
+        }
+    </style>
+
+    <div class="uper">
+
+    </div>
+    <div class="uper2">
+
+    </div>
+
+    <div class="center">
+
+        <% allposts.reverse().forEach(function(post){ %>
+            <div class="box">
+
+                <div class="pic">
+
+                    <img src="../images/uploads/<%= post.postimage %>" alt="">
+                </div>
+
+
+                <div class="text">
+
+
+                    <div class="text-up">
+
+                        <a href="/post/<%= post._id %>">
+                            <%= post.data %>
+                        </a>
+                        <!-- <h3>
+                        <%= post.tag %>
+                    </h3> -->
+                        <h4>
+                            <%= post.brand %>
+                        </h4>
+                        <h5>
+                            Rs. <%= post.price %>
+                        </h5>
+                        <p>Hot Deal</p>
+
+                        <h6>Size <span>6,7,8,9,10</span></h6>
+                    </div>
+                    <div class="thumb">
+                        <i class="ri-thumb-up-fill"></i>
+                        <button>Like</button>
+
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+            <% }) %>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <% include ./partials/footer.ejs %>
